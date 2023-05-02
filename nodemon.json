@@ -1,0 +1,11 @@
+{
+  "watch": ["dist"],
+  "ext": "js",
+  "ignore": ["*.test.ts"],
+  "exec": "node -r ./dotenv-preload.js -r ./tsconfig-paths-bootstrap.js --enable-source-maps dist/index.js",
+  "env": {
+    "NODE_ENV": "local",
+    "LOCAL_ENV": "local",
+    "DEBUG": "axios"
+  }
+}

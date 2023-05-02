@@ -1,0 +1,103 @@
+---
+parser: '@typescript-eslint/parser'
+plugins:
+  - import
+  - '@typescript-eslint'
+  - eslint-plugin-unicorn
+  - jsdoc
+
+extends:
+  - eslint:recommended
+  - plugin:import/recommended
+  - plugin:import/typescript
+  - plugin:@typescript-eslint/recommended
+  - plugin:unicorn/recommended
+  - plugin:jsdoc/recommended
+
+env:
+  es6: true
+  node: true
+
+settings:
+  import/resolver:
+    node: {} # workaround for https://github.com/benmosher/eslint-plugin-import/issues/1396
+    typescript:
+      config:
+        resolve:
+          modules:
+            - node_modules
+            - src
+          extensions:
+            - .d.ts
+            - .ts
+            - .mjs
+            - .js
+
+rules:
+  no-mixed-spaces-and-tabs: 0
+  # Core
+  sort-imports:
+    - error
+    - ignoreDeclarationSort: true
+
+  # Import
+  import/no-useless-path-segments: error
+  import/no-extraneous-dependencies: error
+  import/newline-after-import: error
+  import/no-duplicates: error
+  import/first: error
+  import/export: error
+  import/no-dynamic-require: error
+  import/extensions:
+    - error
+    - always
+    - ts: never
+      mjs: never
+      js: never
+      tsx: never
+      jsx: never
+  import/order:
+    - error
+    - newlines-between: always
+      alphabetize:
+        order: asc
+      groups:
+        - type
+        - builtin
+        - external
+        - internal
+        - parent
+        - sibling
+        - index
+  # TypeScript
+  'arrow-body-style':
+    - error
+    - as-needed
+  '@typescript-eslint/no-explicit-any': off
+  '@typescript-eslint/no-var-requires': off
+  'unicorn/prefer-module': off
+  '@typescript-eslint/consistent-type-imports':
+    - error
+    - prefer: 'type-imports'
+  '@typescript-eslint/naming-convention':
+    - error
+    - selector: [interface, typeAlias, typeParameter]
+      format: [PascalCase]
+      suffix: [T]
+      filter:
+        match: false
+        regex: '^(.|ID)$'
+  '@typescript-eslint/no-unused-vars':
+    - error
+    - varsIgnorePattern: '^_'
+      argsIgnorePattern: '^_'
+
+  unicorn/filename-case: off
+  unicorn/no-abusive-eslint-disable: off
+  unicorn/no-useless-undefined: off
+  no-nested-ternary: off
+
+  no-debugger: off
+  unicorn/prefer-top-level-await: off
+
+  jsdoc/no-undefined-types: off

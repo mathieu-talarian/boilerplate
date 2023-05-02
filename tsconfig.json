@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Node 18 + ESM + Strictest",
+  "compilerOptions": {
+    "lib": ["ESNext"],
+    "module": "commonjs",
+    "target": "es2022",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
+    "allowUnusedLabels": false,
+    "allowUnreachableCode": false,
+    "exactOptionalPropertyTypes": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "verbatimModuleSyntax": false,
+    "checkJs": false,
+    "allowJs": false,
+    "baseUrl": "src",
+    "typeRoots": ["@types", "./node_modules/@types"],
+    "resolveJsonModule": true,
+    "paths": {
+      "@app/*": ["*"],
+      "@lib/*": ["lib/*"],
+      "@enums/*": ["enums/*"],
+      "@routes/*": ["routes/*"],
+      "@config/*": ["config/*"],
+      "@controllers/*": ["controllers/*"],
+      "@handlers/*": ["handlers/*"],
+      "@middlewares/*": ["middlewares/*"],
+      "@utils/*": ["utils/*"],
+      "@tests/*": ["tests/*"],
+      "@types": ["types"]
+    }
+  },
+  "exclude": ["node_modules", "**/*.spec.ts", "src/**/*.test.ts"]
+}
